@@ -6,8 +6,9 @@ import xml2js from "xml2js";
 // import js2xmlparser from "js2xmlparser";
 var zip = require("jszip")();
 function App() {
-  const [data, setData] = useState();
+  const [data, setData] = useState({});
   const [submit, setSubmit] = useState();
+  const [jsonHandle, setJsonHandle] = useState();
 
   //Coco to ${Pascal} Input file
   const handleChange = (e) => {
@@ -21,17 +22,32 @@ function App() {
 
   //On Submit Convert coco to pascal
   const onSubmit = () => {
+    const obj = JSON.parse(data);
     const builder = new xml2js.Builder();
-    const xml = builder.buildObject(data);
+    const xml = builder.buildObject(obj);
     setSubmit(xml);
-    console.log(xml, alert("Successfully Converted Now you Can download"));
   };
 
-  //Download event coco to pascal
+  // convert pascal to coco
+  const jsonExportHandle = (e) => {
+    var parser = new xml2js.Parser({ explicitArray: true });
+    parser
+      .parseStringPromise(data)
+      .then(function (result) {
+        console.dir(JSON.stringify(result));
+        setJsonHandle(result);
+      })
+      .catch(function (err) {
+        console.log(err, "Not found");
+      });
+  };
+
+  //Download event
   const downloadEvent = () => {
-    console.log("Download", submit);
     var main = zip.folder("main");
-    main.file("main.xml", submit.toString());
+    main.file("main.xml", submit);
+    var newMain = zip.folder("test");
+    newMain.file("test.json", JSON.stringify(jsonHandle));
     zip.generateAsync({ type: "blob" }).then(function (content) {
       saveAs(content, "/Example.zip");
     });
@@ -51,14 +67,15 @@ function App() {
           id="json"
         />
         <button onClick={onSubmit}>Convert Coco to Pascal</button>
+        <button onClick={jsonExportHandle}>Convert Pascal to Coco</button>
       </div>
 
       <div className="btnDownload">
-        {submit && (
-          <button onClick={() => downloadEvent()} download>
-            Download
-          </button>
-        )}
+        {/* {submit && ( */}
+        <button onClick={() => downloadEvent()} download>
+          Download
+        </button>
+        {/* )} */}
       </div>
     </>
   );
