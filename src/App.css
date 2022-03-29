@@ -1,0 +1,28 @@
+.heading {
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  font-size: large;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.inputDiv {
+  height: 550px;
+  width: 100%;
+  justify-content: space-around;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.inputDiv > textarea {
+  height: 200px;
+  width: 520px;
+}
+
+.btnDownload {
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
