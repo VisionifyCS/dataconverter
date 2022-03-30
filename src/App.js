@@ -1,9 +1,7 @@
 import { useState } from "react";
 import "./App.css";
-// import { file } from "jszip";
 import { saveAs } from "file-saver";
 import xml2js from "xml2js";
-// import js2xmlparser from "js2xmlparser";
 var zip = require("jszip")();
 function App() {
   const [data, setData] = useState({});
@@ -56,26 +54,61 @@ function App() {
   };
   return (
     <>
-      <div className="heading">
-        <h1>Welcome to data converter</h1>
+      <div className="navbar">
+        <nav className="navbarheading">
+          <h1 className="navbar-h1">
+            Data<span style={{ color: "green" }}>converter</span>
+          </h1>
+        </nav>
       </div>
-      <div className="inputDiv">
-        <input
-          type="file"
-          className="textArea"
-          onChange={handleChange}
-          id="json"
-        />
-        <button onClick={onSubmit}>Convert Coco to Pascal</button>
-        <button onClick={jsonExportHandle}>Convert Pascal to Coco</button>
-      </div>
+      <div
+        style={{
+          backgroundColor: "#fff",
+          marginTop: "60px",
+          borderRadius: "20px",
+        }}
+      >
+        <div className="heading">
+          <h1 style={{ color: "black" }}>Welcome to data converter</h1>
+        </div>
+        <div className="inputDiv">
+          <h2 className="input-h2">Upload Your Files Here</h2>
+          <input
+            type="file"
+            className="inputArea"
+            onChange={handleChange}
+            id="json"
+            multiple
+          />
+          <button onClick={onSubmit} className="btn">
+            Convert Coco to Pascal
+          </button>
+          <button onClick={jsonExportHandle} className="btn">
+            Convert Pascal to Coco
+          </button>
 
-      <div className="btnDownload">
-        {/* {submit && ( */}
-        <button onClick={() => downloadEvent()} download>
-          Download
-        </button>
-        {/* )} */}
+          <div className="btnDownload">
+            {submit && (
+              <button
+                onClick={() => downloadEvent()}
+                download
+                className="btnInfo"
+              >
+                Download
+              </button>
+            )}
+
+            {jsonHandle && (
+              <button
+                onClick={() => downloadEvent()}
+                download
+                className="btnInfo"
+              >
+                Download
+              </button>
+            )}
+          </div>
+        </div>
       </div>
     </>
   );

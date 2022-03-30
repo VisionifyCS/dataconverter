@@ -1,28 +1,131 @@
+body {
+  font-family: "Times New Roman", Times, serif;
+  background-color: black;
+}
+
+.navbar {
+  height: 80px;
+  background-color: #fff;
+  border-radius: 50px;
+  position: relative;
+}
+.navbarheading {
+  align-items: center;
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 20px;
+}
+.navbar-h1 {
+  font-size: 30px;
+  font-family: "Open Sans", sans-serif;
+  font-family: "Poppins", sans-serif;
+  font-family: "Roboto", sans-serif;
+}
+
 .heading {
   justify-content: center;
   display: flex;
   align-items: center;
   font-size: large;
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-family: "Open Sans", sans-serif;
+  font-family: "Poppins", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 .inputDiv {
-  height: 550px;
+  height: 450px;
   width: 100%;
-  justify-content: space-around;
+  justify-content: center;
   display: flex;
   align-items: center;
   flex-direction: column;
   align-items: center;
+  justify-content: space-evenly;
 }
 
-.inputDiv > textarea {
-  height: 200px;
-  width: 520px;
+.inputArea {
+  font-size: 20px;
+  background: rgb(26, 25, 25);
+  width: 500px;
+  outline: none;
+  height: 50px;
+  color: #fff;
+  border-radius: 30px;
+  cursor: pointer;
+  font-family: "Open Sans", sans-serif;
+  font-family: "Poppins", sans-serif;
+  font-family: "Roboto", sans-serif;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+::-webkit-file-upload-button {
+  color: grey;
+  border: none;
+  padding: 11px;
+  border-radius: 50px;
+  outline: none;
+  cursor: pointer;
+  margin-right: 200px;
+  margin-left: 12px;
+  margin-top: 2.5px;
+  font-family: "Open Sans", sans-serif;
+  font-family: "Poppins", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
+::-webkit-file-upload-button:hover {
+  background: #fff;
+  font-weight: 500;
+  color: black;
+  font-family: "Open Sans", sans-serif;
+  font-family: "Poppins", sans-serif;
+  font-family: "Roboto", sans-serif;
+}
 .btnDownload {
   justify-content: center;
   display: flex;
   align-items: center;
+  margin-top: 20px;
+  width: 280px;
+  margin-left: 80%;
+  font-family: "Open Sans", sans-serif;
+  font-family: "Poppins", sans-serif;
+  font-family: "Roboto", sans-serif;
+}
+
+.btn {
+  font-size: 1.5vmax;
+  width: 280px;
+  height: 50px;
+  padding: 5px;
+  border-radius: 10px;
+  background-color: #16264c;
+  color: #fff;
+  cursor: pointer;
+  font-family: "Open Sans", sans-serif;
+  font-family: "Poppins", sans-serif;
+  font-family: "Roboto", sans-serif;
+}
+
+.btnInfo {
+  font-size: 1.5vmax;
+  padding: 5px;
+  border-radius: 10px;
+  background-color: #16264c;
+  color: #fff;
+  cursor: pointer;
+  width: 20px;
+  flex: 1;
+  font-family: "Open Sans", sans-serif;
+  font-family: "Poppins", sans-serif;
+  font-family: "Roboto", sans-serif;
+  height: 50px;
+}
+
+.input-h2 {
+  font-family: "Open Sans", sans-serif;
+  font-family: "Poppins", sans-serif;
+  font-family: "Roboto", sans-serif;
+  margin-right: 200px;
 }
