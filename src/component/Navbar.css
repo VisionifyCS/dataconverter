@@ -1,0 +1,21 @@
+.navbar {
+    height: 80px;
+    background-color: #fff;
+    position: relative;
+    position: fixed;
+    width: 99%;
+    
+
+  }
+  
+  .navbarheading {
+    align-items: center;
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 20px;
+    cursor: pointer;
+  }
+  .navbar-h1 {
+    font-size: 30px;
+    font-family: "Times New Roman", Times, serif;
+  }
