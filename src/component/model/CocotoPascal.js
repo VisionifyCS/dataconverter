@@ -1,5 +1,5 @@
 import { Fragment, useState } from "react";
-import "../component/Convert.css";
+import "./CocotoPascal.css";
 import { saveAs } from "file-saver";
 import xml2js from "xml2js";
 import Button from "@mui/material/Button";
@@ -9,8 +9,7 @@ var zip = require("jszip")();
 function App() {
   const [data, setData] = useState({});
   const [submit, setSubmit] = useState();
-  const [jsonHandle, setJsonHandle] = useState();
-  const [visible, setVisible] = useState(false);
+  // const [visible, setVisible] = useState(false);
   const [isDisabled, setIsDisabled] = useState(true);
 
   //Coco to ${Pascal} Input file
@@ -32,26 +31,12 @@ function App() {
     setSubmit(xml);
   };
 
-  // convert pascal to coco
-  const jsonExportHandle = (e) => {
-    var parser = new xml2js.Parser({ explicitArray: true });
-    parser
-      .parseStringPromise(data)
-      .then(function (result) {
-        console.dir(JSON.stringify(result));
-        setJsonHandle(result);
-      })
-      .catch(function (err) {
-        console.log(err, "Not found");
-      });
-  };
-
   //Download event
   const downloadEvent = () => {
     var main = zip.folder("main");
     main.file("main.xml", submit);
-    var newMain = zip.folder("test");
-    newMain.file("test.json", JSON.stringify(jsonHandle));
+    // var newMain = zip.folder("test");
+    // newMain.file("test.json", JSON.stringify(jsonHandle));
     zip.generateAsync({ type: "blob" }).then(function (content) {
       saveAs(content, "/Example.zip");
     });
@@ -62,13 +47,19 @@ function App() {
     <Fragment>
       <div className="container">
         <wrapper className="wrapper">
-          <h1 style={{ color: "grey", width: "150%" }}>
+          <h1
+            style={{
+              color: "grey",
+              width: "100%",
+              justifyContent: "center",
+              display: "flex",
+              textAlign: "center",
+              alignItems: "center",
+            }}
+          >
             Welcome to File converter
           </h1>
-          <h2 style={{ color: "grey", width: "1000px" }}>
-            Pascal to Coco / Coco to Pascal / LablemeJson to Pascal / Pascal to
-            LablemeJson
-          </h2>
+          <h2 style={{ color: "grey", width: "800px" }}>Coco to Pascal</h2>
         </wrapper>
         <div className="btnDivContainer">
           <div className="file-card">
@@ -79,63 +70,31 @@ function App() {
                 onChange={handleChange}
                 id="json"
                 multiple
-                onClick={() => setVisible(true)}
+                accept=".json"
               />
               <button>Upload Your File Here</button>
             </div>
           </div>
           <div className="btnDiv">
-            {visible && (
+            <Button
+              variant="contained"
+              onClick={onSubmit}
+              className="btn"
+              disabled={isDisabled}
+            >
+              Convert Coco to Pascal
+            </Button>
+            {submit && (
               <Button
                 variant="contained"
-                onClick={onSubmit}
-                className="btn"
-                disabled={isDisabled}
+                onClick={() => downloadEvent()}
+                download
+                className="btnInfo"
               >
-                Convert Coco to Pascal
+                Download
               </Button>
             )}
-            <Button
-              variant="contained"
-              onClick={jsonExportHandle}
-              className="btn"
-            >
-              Convert Pascal to Coco
-            </Button>
-            <Button variant="contained" onClick={onSubmit} className="btn">
-              Convert LabelMeJson to Pascal
-            </Button>
-            <Button
-              variant="contained"
-              onClick={jsonExportHandle}
-              className="btn"
-            >
-              Convert Pascal to LabelMeJson
-            </Button>
           </div>
-        </div>
-
-        <div>
-          {submit && (
-            <Button
-              variant="contained"
-              onClick={() => downloadEvent()}
-              download
-              className="btnInfo"
-            >
-              Download
-            </Button>
-          )}
-
-          {jsonHandle && (
-            <button
-              onClick={() => downloadEvent()}
-              download
-              className="btnInfo"
-            >
-              Download
-            </button>
-          )}
         </div>
       </div>
       <footer className="footer">Your File Editor@</footer>

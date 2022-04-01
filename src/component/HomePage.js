@@ -1,6 +1,7 @@
 import { Box, Button, Paper } from "@material-ui/core";
 import React, { Fragment } from "react";
 import { useNavigate } from "react-router-dom";
+import image from "../images/hello.png";
 import "./HomePage.css";
 
 const HomePage = () => {
@@ -9,9 +10,13 @@ const HomePage = () => {
     <Fragment>
       <div className="container">
         <div className="infoWrapper">
-          <h1>Every tool you need to work with convert in one place</h1>
-          <h2>Easy to convert your file here 100% free</h2>
-          <h3>Convert your ML Data</h3>
+          <h1 style={{ color: "#fff" }}>
+            Every tool you need to work with convert in one place
+          </h1>
+          <h2 style={{ color: "#fff" }}>
+            Easy to convert your file here 100% free
+          </h2>
+          <h3 style={{ color: "#fff" }}>Convert your ML Data</h3>
         </div>
         <div className="box-div">
           <Box
@@ -30,44 +35,46 @@ const HomePage = () => {
                 <Button
                   className="wrapper"
                   onClick={() => {
-                    navigate("/converter/");
+                    navigate("/pascaltococo/");
                   }}
                 >
-                  <h1>Pascal to Coco</h1>
-                  <h5>Convert your pascal xml data to coco json </h5>
+                  {" "}
+                  <div>
+                    <h1 style={{ fontSize: "15px" }}>Pascal to Coco</h1>
+                    <h5 style={{ color: "grey" }}>
+                      Convert your pascal xml data to coco json{" "}
+                    </h5>
+                  </div>
                 </Button>
               </Box>
               <Box className="box-info">
                 <Button
                   className="wrapper"
                   onClick={() => {
-                    navigate("/converter/");
+                    navigate("/cocotopascal/");
                   }}
                 >
-                  <h1>Coco to Pascal</h1>
-                  <h5>Convert your Cocon JSON data to Pascal XML</h5>
+                  <div>
+                    <h1 style={{ fontSize: "15px" }}>Coco to Pascal</h1>
+                    <h5 style={{ color: "grey" }}>
+                      Convert your Cocon JSON data to Pascal XML
+                    </h5>
+                  </div>
                 </Button>
               </Box>
               <Box className="box-info">
                 <Button
                   className="wrapper"
                   onClick={() => {
-                    navigate("/converter/");
+                    navigate("/labelmetopascal/");
                   }}
                 >
-                  <h1>labelme to Pascal</h1>
-                  <h5>Convert your labelme data to Pascal XML </h5>
-                </Button>
-              </Box>
-              <Box className="box-info">
-                <Button
-                  className="wrapper"
-                  onClick={() => {
-                    navigate("/converter/");
-                  }}
-                >
-                  <h1>Pascal to labelme</h1>
-                  <h5>Convert your pascal xml data to Labelme</h5>
+                  <div>
+                    <h1 style={{ fontSize: "15px" }}>Lableme Json to Pascal</h1>
+                    <h5 style={{ color: "grey" }}>
+                      Convert your labelmejson data to Pascal XML{" "}
+                    </h5>
+                  </div>
                 </Button>
               </Box>
             </Paper>

@@ -17,6 +17,7 @@
     "@testing-library/user-event": "^13.5.0",
     "assert": "^2.0.0",
     "buffer": "^6.0.3",
+    "eslint-plugin-jsx-a11y": "^2.2.3",
     "fast-xml-parser": "^4.0.7",
     "file-saver": "^2.0.5",
     "i": "^0.3.7",

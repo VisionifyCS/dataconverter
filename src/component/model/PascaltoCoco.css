@@ -1,7 +1,7 @@
-/* body {
+body {
     font-family: "Times New Roman", Times, serif;
-    background-color: #ebeae6;
-  } */
+    background-color: #fffdf6;
+  }
   
   .container {
     margin-top: 20px;
@@ -44,6 +44,7 @@
   }
   .btn {
     width: 320px;
+    height: 80px;
   }
   
   .btn:hover {
@@ -51,11 +52,14 @@
   }
   
   .btnInfo {
-    height: 50px;
-    width: 200px;
+    width: 320px;
+    height: 80px;
+  }
+  .btnInfo:hover {
+    background-color: black;
   }
   
-  /* .file-card{
+  .file-card{
       padding: 1em;
       display: flex;
       flex-direction: column;
@@ -65,7 +69,8 @@
       background-color: #edf2f7;
       min-width: 450px;
       min-height: 230px;
-  } */
+      margin-bottom: 60px;
+  }
   
   .file-inputs{
     position: relative;
