@@ -13,7 +13,7 @@ function App() {
   // const [visible, setVisible] = useState(false);
   const [isDisabled, setIsDisabled] = useState(true);
 
-  //Coco to ${Pascal} Input file
+  //Pascal Input file
   const handleChange = (e) => {
     const fileReader = new FileReader();
     fileReader.readAsText(e.target.files[0], "UTF-8");

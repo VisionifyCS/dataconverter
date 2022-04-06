@@ -17,7 +17,6 @@
     "@testing-library/user-event": "^13.5.0",
     "assert": "^2.0.0",
     "buffer": "^6.0.3",
-    "eslint-plugin-jsx-a11y": "^2.2.3",
     "fast-xml-parser": "^4.0.7",
     "file-saver": "^2.0.5",
     "i": "^0.3.7",
@@ -30,7 +29,6 @@
     "react-router-dom": "^6.2.2",
     "react-scripts": "^4.0.3",
     "react-xml-parser": "^1.1.8",
-    "sass": "^1.49.10",
     "timers-browserify": "^2.0.12",
     "web-vitals": "^2.1.4",
     "web4": "^1.0.0",
@@ -44,7 +42,8 @@
   },
   "eslintConfig": {
     "extends": [
-      "react-app"
+      "react-app",
+      "plugin:jsx-a11y/recommended"
     ]
   },
   "browserslist": {
